@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TuneUp! – Music for Wake, Sleep & Focus</title>
+  <title>TuneUp! – Music Alarm for Wake, Sleep & Focus</title>
 
   <style>
     :root {
@@ -156,34 +156,21 @@
       border-top: 1px solid var(--border);
     }
     /* Modifiche di stile */
-@media (max-width: 480px) {
-  .brand img {
-    width: 48px;
-    height: 48px;
-  }
-} /* chiusa Media */
-  .brand {
+.brand {
   display: flex;
-  flex-direction: row;   /* ← forza logo a sinistra */
   align-items: baseline;
   justify-content: center;
-  gap: 5px;
+  gap: 7px;
 }
 
- /* .brand img {
-  width: 96px;
-  height: 96px;
-  object-fit: contain;
-  vertical-align: baseline;
-} */
 .brand img {
-  height: 3.2em;/* 👈 CHIAVE */
+  height: 3.2em;
   width: auto;
   object-fit: contain;
-  transform: translateY(2px); /* micro-optical */
+  transform: translateY(2px);
 }
-    
-  .brand h1 {
+
+.brand h1 {
   font-size: 3.2em;
   font-weight: 600;
   line-height: 1;
