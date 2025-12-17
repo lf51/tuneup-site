@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TuneUp – Music for Focus, Sleep & Wake</title>
+  <title>TuneUp! – Music for Wake, Sleep & Focus</title>
 
   <style>
     :root {
@@ -154,6 +155,13 @@
       font-size: 0.85rem;
       border-top: 1px solid var(--border);
     }
+    /* Modifiche di stile */
+@media (max-width: 480px) {
+  .brand img {
+    width: 40px;
+    height: 40px;
+  }
+}    
   </style>
 </head>
 
@@ -161,7 +169,11 @@
 
   <!-- HERO / PRODUCT HEADER -->
   <header>
-    <h1>TuneUp</h1>
+    <!-- <h1>TuneUp!</h1> -->
+  <div class="brand">
+    <img src="logo-placeholder.png" alt="TuneUp! logo" />
+    <h1>TuneUp!</h1>
+  </div>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turn music into a daily ritual for focus, relaxation, and better sleep.</p>
 
     <div class="cta">
@@ -238,7 +250,7 @@
   </section>
 
   <footer>
-    © TuneUp – All rights reserved
+    © TuneUp! – All rights reserved
   </footer>
 
 </body>
