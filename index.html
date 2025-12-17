@@ -143,10 +143,15 @@
     }
 
     .legal-links a {
-      color: var(--secondary);
+      color: #007AFF;          /* Apple system blue */
+       font-size: 0.9rem;
       text-decoration: none;
       margin: 0 8px;
     }
+
+.legal-links a:hover {
+  text-decoration: underline;
+}
 
     footer {
       padding: 40px 24px;
@@ -291,6 +296,13 @@
         </div>
       </div>
     </div>
+
+    <div class="budgeApple">
+  <a href="https://apps.apple.com/app/apple-store/id6754902021?pt=123477141&ct=website&mt=8">
+    <img src="assets/img/appStore_badge.png" alt="Download on the App Store">
+  </a>
+</div>
+    
   </section>
 
   <!-- LEGAL / FUTURE PAGES -->
@@ -300,15 +312,10 @@
       <p style="text-align:center; color: var(--secondary); max-width:720px; margin:0 auto;">
         This section is reserved for multilingual Privacy Policy and Terms of Service pages.
       </p> -->
-<div class="budgeApple">
-  <a href="https://apps.apple.com/app/apple-store/id6754902021?pt=123477141&ct=website&mt=8">
-    <img src="assets/img/appStore_badge.png" alt="Download on the App Store">
-  </a>
-</div>
       
       <div class="legal-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
+        <a href="/legal/privacy/eng.html">Privacy Policy</a>
+        <a href="/legal/terms/eng.html">Terms of Service</a>
      
       </div>
     </div>
