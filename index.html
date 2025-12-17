@@ -1,9 +1,245 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>TuneUp</title>
-  </head>
-  <body>
-    Test TuneUp
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TuneUp – Music for Focus, Sleep & Wake</title>
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #111111;
+      --secondary: #666666;
+      --border: #eaeaea;
+      --accent: #007aff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 80px 24px 60px;
+      text-align: center;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    header p {
+      font-size: 1.25rem;
+      color: var(--secondary);
+      max-width: 720px;
+      margin: 0 auto 32px;
+    }
+
+    .cta {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta a {
+      text-decoration: none;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      color: var(--text);
+      transition: all 0.2s ease;
+    }
+
+    .cta a.primary {
+      background-color: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    .cta a:hover {
+      transform: translateY(-1px);
+    }
+
+    section {
+      padding: 80px 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 32px;
+      margin-top: 48px;
+    }
+
+    .feature {
+      text-align: center;
+    }
+
+    .feature .placeholder {
+      width: 100%;
+      height: 160px;
+      background: linear-gradient(135deg, #f2f2f2, #e6e6e6);
+      border-radius: 16px;
+      margin-bottom: 16px;
+    }
+
+    .feature h3 {
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+    }
+
+    .feature p {
+      color: var(--secondary);
+      font-size: 0.95rem;
+    }
+
+    .faq {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+
+    .faq-item h4 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+    }
+
+    .legal-links {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9rem;
+    }
+
+    .legal-links a {
+      color: var(--secondary);
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    footer {
+      padding: 40px 24px;
+      text-align: center;
+      color: var(--secondary);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO / PRODUCT HEADER -->
+  <header>
+    <h1>TuneUp</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turn music into a daily ritual for focus, relaxation, and better sleep.</p>
+
+    <div class="cta">
+      <a href="#" class="primary">Download on the App Store</a>
+      <a href="#">Listen on Apple Music</a>
+    </div>
+  </header>
+
+  <!-- PRODUCT OVERVIEW -->
+  <section>
+    <div class="container">
+      <h2>Designed for your daily rhythm</h2>
+      <p style="text-align:center; color: var(--secondary); max-width:720px; margin:0 auto;">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+
+      <div class="features">
+        <div class="feature">
+          <div class="placeholder"></div>
+          <h3>Wake up gently</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="feature">
+          <div class="placeholder"></div>
+          <h3>Stay focused</h3>
+          <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="feature">
+          <div class="placeholder"></div>
+          <h3>Relax and unwind</h3>
+          <p>Ut enim ad minim veniam, quis nostrud exercitation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq">
+        <div class="faq-item">
+          <h4>What is TuneUp?</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Does TuneUp require Apple Music?</h4>
+          <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Is TuneUp free?</h4>
+          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEGAL / FUTURE PAGES -->
+  <section>
+    <div class="container">
+      <h2>Legal</h2>
+      <p style="text-align:center; color: var(--secondary); max-width:720px; margin:0 auto;">
+        This section is reserved for multilingual Privacy Policy and Terms of Service pages.
+      </p>
+
+      <div class="legal-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy (IT)</a>
+        <a href="#">Privacy (FR)</a>
+        <a href="#">Privacy (DE)</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © TuneUp – All rights reserved
+  </footer>
+
+</body>
 </html>
