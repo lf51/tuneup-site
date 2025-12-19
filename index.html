@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TuneUp! – Music Alarm for Wake, Sleep & Focus</title>
+ <title>TuneUp! – Turn Snooze Into Music</title>
+ <meta name="description" content="Turn snooze into music. TuneUp helps you wake up, fall asleep, and stay focused using the music you love.">
 
   <style>
     :root {
@@ -41,10 +42,11 @@
     }
 
     header p {
-      font-size: 1.25rem;
+      font-size: 1.5rem;
       color: var(--secondary);
       max-width: 720px;
       margin: 0 auto 32px;
+      font-style: italic;
     }
 
     .cta {
@@ -103,29 +105,47 @@
       text-align: center;
     }
 
-    .feature .placeholder {
-      display:flex;
-      width: 100%;
-      height: 320px;
-      background: linear-gradient(135deg, #f2f2f2, #e6e6e6);
-      justify-content: center;
-      border-radius: 16px;
-      margin-bottom: 16px;
-      gap: 0.5em;
-    }
+.feature .placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  width: 100%;
+  height: 320px;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border-radius: 16px;
+  padding: 16px;
+  overflow: hidden;
+}
+
+.placeholder.bg-snooze {
+  background-image: url("assets/img/sfondoPlaceholder.jpeg");
+}
+
+.placeholder.bg-sleep {
+  background-image: url("assets/img/sfondoPlaceholderDark.jpeg");
+}
+
+.placeholder.bg-focus {
+  background-image: url("assets/img/sfondoPlaceholder2.jpeg");
+}
+
+
 
     /* custom style*/
-   .feature .placeholder img { 
-
-      height: auto;
-      width: auto;
-      object-fit: contain;
-      transform: translateY(2px); 
-   
-     padding: 5%;
-      
-
+ .feature .placeholder img {
+  max-height: 100%;
+  max-width: 45%;
+  object-fit: contain;
+  flex-shrink: 1;
+  z-index: 1;
 }
+
+
 
     .feature h3 {
       margin-bottom: 8px;
@@ -236,6 +256,19 @@
   max-width: 520px;
   text-align: center;
 }
+.video-wrapper {
+  width: 100%;
+  max-width: 460px;
+}
+
+
+.video-wrapper video {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+
 
 @media (max-width: 768px) {
   .music-embed {
@@ -258,7 +291,7 @@
     <img src="assets/img/logo_PNG_8.3.png" alt="TuneUp! logo" />
     <h1>TuneUp!</h1>
   </div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turn music into a daily ritual for focus, relaxation, and better sleep.</p>
+    <p>Turn snooze into music</p>
 
     <!-- Modifiche lf51 -->
 <div class="budgeApple">
@@ -271,7 +304,56 @@
     
   </header>
 
- <!-- Apple Music Section -->
+
+  <!-- PRODUCT OVERVIEW -->
+  <section>
+    <div class="container">
+      <h2>Built around your daily rhythm</h2>
+      <p style="text-align:center; color: var(--secondary); max-width:720px; margin:0 auto;">
+        Music that helps you shape your routines — from waking up to winding down and staying focused.
+      </p>
+
+      <div class="features">
+        <div class="feature">
+          <h3>Snooze, reimagined with music</h3>
+          <p>Turn your morning snooze into sound.
+Instead of silence, your music gently takes over and helps you wake up your way.</p>
+          <div class="placeholder bg-snooze">
+             <img src="assets/img/newWakeUpScreen.png" alt="TuneUp! New Alarm View" />
+            <img src="assets/img/musicAlarm.png" alt="TuneUp! Music Alarm View" />
+          </div>
+          <!--<h3>Snooze with Music</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
+        </div>
+        <div class="feature">
+          <h3>Fall asleep with Music</h3>
+          <p>Let music guide you into sleep.
+Choose what you love and drift off naturally — with or without a timer.</p>
+          <div class="placeholder bg-sleep">
+            <img src="assets/img/musicLibraryScreen.png" alt="TuneUp! Music Library" />
+            <img src="assets/img/fallAsleepScreen.png" alt="TuneUp! Fall Asleep View" />
+
+          </div>
+          <!--<h3>Fall asleep with Music</h3>
+          <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>-->
+        </div>
+        <div class="feature">
+          <h3>Stay Focused or Relax</h3>
+          <p>Find your rhythm and stay present.
+Use music to focus or slow down, set a timer, and let the rest fade away.</p>
+          <div class="placeholder bg-focus">  
+            <img src="assets/img/focusScreen.png" alt="TuneUp! Focus View" />
+          </div>
+          
+          <!--<h3>Stay Focus or Relax </h3>
+          <p>Ut enim ad minim veniam, quis nostrud exercitation.</p>-->
+        </div>
+       
+      </div>
+    </div>
+  </section>
+
+   <!-- Apple Music Section -->
  <section>
     <div class="music-embed">
       <div class="music-text">
@@ -283,50 +365,27 @@ A curated starting point for mornings that feel just right.</p>
 <iframe height="450" width="100%" title="Lettore multimediale" src="https://embed.music.apple.com/us/playlist/waking-up/pl.71f9f4dd13b946ff91900c6befa93e03?itscg=30200&amp;itsct=music_box_player&amp;ls=1&amp;app=music&amp;mttnsubad=pl.71f9f4dd13b946ff91900c6befa93e03&amp;theme=light" id="embedPlayer" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="autoplay *; encrypted-media *; clipboard-write" style="border: 0px; border-radius: 12px; width: 100%; height: 450px; max-width: 660px;"></iframe>
         </div>
   </section>
-  <!-- PRODUCT OVERVIEW -->
-  <section>
-    <div class="container">
-      <h2>Designed for your daily rhythm</h2>
-      <p style="text-align:center; color: var(--secondary); max-width:720px; margin:0 auto;">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      </p>
+<!-- Video last Update-->
 
-      <div class="features">
-        <div class="feature">
-          <h3>Snooze with Music</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <div class="placeholder">
-            
-            <img src="assets/img/musicAlarm.png" alt="TuneUp! Music Alarm View" />
-          </div>
-          <!--<h3>Snooze with Music</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
-        </div>
-        <div class="feature">
-          <h3>Fall asleep with Music</h3>
-          <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <div class="placeholder">
-            <img src="assets/img/musicLibraryScreen.png" alt="Classic Alarm with snooze" />
-            <img src="assets/img/musicAlarm.png" alt="TuneUp! Music Alarm View" />
-
-          </div>
-          <!--<h3>Fall asleep with Music</h3>
-          <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>-->
-        </div>
-        <div class="feature">
-          <h3>Stay Focus or Relax </h3>
-          <p>Ut enim ad minim veniam, quis nostrud exercitation.</p>
-          <div class="placeholder">  
-          <img src="assets/img/classicAlarm.png" alt="Classic Alarm with snooze" />
-            <img src="assets/img/musicAlarm.png" alt="TuneUp! Music Alarm View" />
-          </div>
-          
-          <!--<h3>Stay Focus or Relax </h3>
-          <p>Ut enim ad minim veniam, quis nostrud exercitation.</p>-->
-        </div>
-      </div>
+<section>
+  <div class="music-embed">
+    <div class="music-text">
+      <h2>Discover the latest version of TuneUp!</h2>
     </div>
-  </section>
+
+    <div class="video-wrapper">
+      <video
+        controls
+        preload="metadata"
+        poster="assets/video/tuneup-poster.jpg"
+      >
+        <source src="assets/video/appFirstRealese.MP4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</section>
+
 
   <!-- FAQ -->
   <section>
