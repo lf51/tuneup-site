@@ -1,85 +1,71 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact — TuneUp!</title>
-  <meta name="description" content="Get in touch with the TuneUp! team. Questions, feedback, or support requests — we’re here to help.">
-
+  <meta name="description" content="Get in touch with the TuneUp! team. Questions, feedback, or support requests — we're here to help.">
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="../../style/legal-style.css">
 
   <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #ffffff;
-      color: #111;
-      line-height: 1.6;
-    }
+    .container { text-align: center; }
 
-    .container {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 96px 24px;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
-
-    p {
-      color: #555;
-      margin-bottom: 24px;
-    }
-
-    a {
-      color: #007aff;
+    .contact-card {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 8px;
+      padding: 16px 24px;
+      background: rgba(255,255,255,0.055);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 14px;
       text-decoration: none;
+      color: #ffffff;
+      font-size: 1rem;
       font-weight: 500;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
     }
-
-    a:hover {
-      text-decoration: underline;
+    .contact-card:hover {
+      background: rgba(191,90,242,0.12);
+      border-color: rgba(191,90,242,0.35);
+      transform: translateY(-2px);
+      text-decoration: none;
+      color: #ffffff;
     }
-
-    .email {
-      font-size: 1.1rem;
-    }
-
-    footer {
-      margin-top: 64px;
-      font-size: 0.85rem;
-      color: #888;
-    }
+    .contact-card .icon { font-size: 1.2rem; }
   </style>
 </head>
 
 <body>
+
+  <nav class="legal-nav">
+    <a href="../../index.html" class="legal-nav-brand">
+      <img src="../../assets/img/logo_PNG_8.3.png" alt="TuneUp! logo" />
+      TuneUp!
+    </a>
+    <a href="../../index.html" class="legal-nav-back">← Home</a>
+  </nav>
+
   <main class="container">
     <h1>Contact</h1>
 
-    <p>
-      Have questions, feedback, or need support with TuneUp?<br />
-      We’re happy to hear from you.
-    </p>
+    <p>Have questions, feedback, or need support?<br />We're happy to hear from you.</p>
 
-    <p class="email">
-      📧 <a href="mailto:support@tuneupalarm.app">mail to support</a>
-    </p>
+    <a class="contact-card" href="mailto:support@tuneupalarm.app">
+      <span class="icon">✉️</span>
+      support@tuneupalarm.app
+    </a>
 
-      <footer>
-    <p>
-    <a href="../../index.html">Home</a> | 
-    <a href="../privacy/privacyIndex.html">Privacy Policy</a> | 
-    <a href="../terms/termsIndex.html">Terms of Service</a>
-  </p>
-  <p>© TuneUp! — All rights reserved</p>
-  
-</footer>
-
+    <footer>
+      <p>
+        <a href="../../index.html">Home</a> ·
+        <a href="../privacy/privacyIndex.html">Privacy Policy</a> ·
+        <a href="../terms/termsIndex.html">Terms of Service</a>
+      </p>
+      <p>© TuneUp! — All rights reserved</p>
+    </footer>
   </main>
+
 </body>
 </html>
