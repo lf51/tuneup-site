@@ -424,25 +424,63 @@
     .f-preview {
       width: 100%;
       border-radius: 14px 14px 0 0;
-      height: 270px;
-      background-size: cover;
-      background-position: center;
+      height: 290px;
+      background: #070707;
       display: flex;
       align-items: flex-end;
-      justify-content: space-evenly;
-      padding: 0 10px;
+      justify-content: center;
       overflow: hidden;
+      position: relative;
+      padding: 0;
     }
-    .f-preview.bg-snooze { background-image: url("assets/img/sfondoPlaceholder.jpeg"); }
-    .f-preview.bg-sleep  { background-image: url("assets/img/sfondoPlaceholderDark.jpeg"); }
-    .f-preview.bg-focus  { background-image: url("assets/img/sfondoPlaceholder2.jpeg"); }
+
+    /* Top fade to blend card content into the preview area */
+    .f-preview::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 48px;
+      background: linear-gradient(to bottom, #070707, transparent);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* Colored ambient glow */
+    .f-preview::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70%;
+      height: 100px;
+      border-radius: 50%;
+      filter: blur(30px);
+      z-index: 0;
+    }
+    .f-preview.glow-red::after    { background: rgba(255,45,85,0.55); }
+    .f-preview.glow-purple::after { background: rgba(191,90,242,0.55); }
+    .f-preview.glow-blue::after   { background: rgba(10,132,255,0.55); }
 
     .f-preview img {
-      max-height: 100%;
-      max-width: 46%;
+      max-height: 96%;
+      max-width: 50%;
       object-fit: contain;
       flex-shrink: 1;
-      filter: drop-shadow(0 -8px 24px rgba(0,0,0,0.45));
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 -6px 28px rgba(0,0,0,0.7));
+    }
+
+    /* Two-screen overlap */
+    .f-preview img:first-child:not(:last-child) {
+      margin-right: -18px;
+      max-width: 46%;
+      z-index: 1;
+    }
+    .f-preview img:last-child:not(:first-child) {
+      max-width: 46%;
+      z-index: 2;
     }
 
     /* ────────────────────────────────
@@ -712,7 +750,7 @@
         <div class="f-icon alarm">⏰</div>
         <h3>Snooze, reimagined with music</h3>
         <p>Turn your morning snooze into sound. Instead of silence, your music gently takes over and helps you wake up your way.</p>
-        <div class="f-preview bg-snooze">
+        <div class="f-preview glow-red">
           <img src="assets/img/newWakeUpScreen.png" alt="Wake Up View" />
           <img src="assets/img/musicAlarm.png" alt="Music Alarm View" />
         </div>
@@ -722,7 +760,7 @@
         <div class="f-icon sleep">🌙</div>
         <h3>Fall asleep with music</h3>
         <p>Let music guide you into sleep. Choose what you love and drift off naturally — with or without a timer.</p>
-        <div class="f-preview bg-sleep">
+        <div class="f-preview glow-purple">
           <img src="assets/img/musicLibraryScreen.png" alt="Music Library" />
           <img src="assets/img/fallAsleepScreen.png" alt="Fall Asleep View" />
         </div>
@@ -732,7 +770,7 @@
         <div class="f-icon focus">🎯</div>
         <h3>Stay focused or relax</h3>
         <p>Find your rhythm and stay present. Use music to focus or slow down, set a timer, and let the rest fade away.</p>
-        <div class="f-preview bg-focus">
+        <div class="f-preview glow-blue">
           <img src="assets/img/focusScreen.png" alt="Focus View" />
         </div>
       </div>
