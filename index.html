@@ -1,465 +1,900 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>TuneUp! – Turn Snooze Into Music</title>
- <meta name="description" content="Turn snooze into music. TuneUp helps you wake up, fall asleep, and stay focused using the music you love.">
+
+  <!-- ── Primary SEO ── -->
+  <title>TuneUp! – Music Alarm Clock for Apple Music</title>
+  <meta name="description" content="TuneUp! is the music alarm clock built for Apple Music. Wake up with your favorite songs, fall asleep with a sleep timer, and stay focused with timed music sessions. Free on iPhone.">
+  <meta name="keywords" content="music alarm clock, Apple Music alarm, wake up with music, music alarm iPhone, sleep timer Apple Music, focus music timer, alarm clock app iOS, TuneUp">
+  <link rel="canonical" href="https://tuneupalarm.app/" />
+
+  <!-- ── Open Graph ── -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://tuneupalarm.app/" />
+  <meta property="og:title"       content="TuneUp! – Music Alarm Clock for Apple Music" />
+  <meta property="og:description" content="Wake up, fall asleep, and stay focused with the music you love. TuneUp! is the alarm clock built for Apple Music — free on iPhone." />
+  <meta property="og:image"       content="https://tuneupalarm.app/assets/img/logo_PNG_8.3.png" />
+  <meta property="og:locale"      content="en_US" />
+  <meta property="og:site_name"   content="TuneUp!" />
+
+  <!-- ── Twitter Card ── -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="TuneUp! – Music Alarm Clock for Apple Music" />
+  <meta name="twitter:description" content="Wake up, fall asleep, and stay focused with the music you love. The alarm clock built for Apple Music." />
+  <meta name="twitter:image"       content="https://tuneupalarm.app/assets/img/logo_PNG_8.3.png" />
+
+  <!-- ── iOS / Safari ── -->
+  <meta name="apple-itunes-app" content="app-id=6754902021" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="TuneUp!" />
+
+  <!-- ── Structured Data ── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "TuneUp! Music Alarm Clock",
+        "url": "https://tuneupalarm.app"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "TuneUp! Music Alarm Clock",
+        "alternateName": "TuneUp!",
+        "description": "TuneUp! is a music alarm clock for iPhone that integrates natively with Apple Music. Set alarms that wake you up with your favorite songs, use a sleep timer to fall asleep with music, and stay focused or relaxed with timed music sessions.",
+        "applicationCategory": "LifestyleApplication",
+        "applicationSubCategory": "Music",
+        "operatingSystem": "iOS 17.0 or later",
+        "url": "https://tuneupalarm.app",
+        "downloadUrl": "https://apps.apple.com/app/apple-store/id6754902021?pt=123477141&ct=website&mt=8",
+        "screenshot": "https://tuneupalarm.app/assets/img/newWakeUpScreen.png",
+        "featureList": [
+          "Music alarm clock with Apple Music integration",
+          "Sleep timer with Apple Music",
+          "Focus and relax music timer",
+          "No account required",
+          "No personal data collected",
+          "Offline playback support"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "author": {
+          "@type": "Person",
+          "url": "https://lf51.github.io/portfolio/"
+        },
+        "inLanguage": ["en","it","fr","de","es","pt","zh","ja","ko","id"]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is TuneUp!?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "TuneUp! is a music alarm clock app for iPhone that integrates with Apple Music. It lets you wake up with your favorite songs, fall asleep with a sleep timer, and stay focused with timed music sessions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does TuneUp! require an Apple Music subscription?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "An active Apple Music subscription is not strictly required. With a subscription you can use your personal playlists and saved music; without one, you can use Apple Music's free radio stations."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does TuneUp! collect personal data?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. TuneUp! does not collect, store, or share personal data. All preferences are stored locally on your device."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does TuneUp! work offline?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, as long as the music is downloaded to your Apple Music library. TuneUp! only plays music already present on your device."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 
   <style>
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --bg: #ffffff;
-      --text: #111111;
-      --secondary: #666666;
-      --border: #eaeaea;
-      --accent: #007aff;
+      --bg:        #000000;
+      --surface:   rgba(255,255,255,0.055);
+      --border:    rgba(255,255,255,0.10);
+      --text:      #ffffff;
+      --muted:     rgba(255,255,255,0.52);
+      --red:       #FF2D55;
+      --purple:    #BF5AF2;
+      --blue:      #0A84FF;
+      --grad:      linear-gradient(135deg, #FF2D55 0%, #BF5AF2 100%);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: var(--bg);
+      background: var(--bg);
       color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Helvetica, Arial, sans-serif;
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    header {
-      padding: 80px 24px 60px;
+    /* ────────────────────────────────
+       NAV
+    ──────────────────────────────── */
+    nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 200;
+      padding: 14px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .nav-brand img { height: 26px; width: auto; }
+    .nav-brand span { font-size: 1rem; font-weight: 700; letter-spacing: -0.02em; }
+
+    .nav-dl img {
+      height: 32px;
+      width: auto;
+      display: block;
+      border-radius: 8px;
+      transition: transform 0.2s ease;
+    }
+    .nav-dl:hover img { transform: scale(1.04); }
+
+    /* ────────────────────────────────
+       HERO
+    ──────────────────────────────── */
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 130px 24px 60px;
       text-align: center;
-      max-width: 960px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Ambient glow */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 90% 60% at 50% -10%, rgba(191,90,242,0.28) 0%, transparent 65%),
+        radial-gradient(ellipse 55% 45% at 15% 90%, rgba(255,45,85,0.22) 0%, transparent 60%),
+        radial-gradient(ellipse 45% 40% at 85% 70%, rgba(10,132,255,0.14) 0%, transparent 60%);
+      animation: ambientPulse 9s ease-in-out infinite alternate;
+    }
+    @keyframes ambientPulse {
+      from { opacity: 0.75; transform: scale(1); }
+      to   { opacity: 1;    transform: scale(1.06); }
+    }
+
+    .hero-content { position: relative; z-index: 2; max-width: 820px; }
+
+    /* Pill label */
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple);
+      padding: 6px 14px;
+      border: 1px solid rgba(191,90,242,0.32);
+      border-radius: 999px;
+      background: rgba(191,90,242,0.09);
+      margin-bottom: 28px;
+    }
+
+    /* Logo + name row */
+    .hero-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .hero-brand img {
+      height: clamp(64px, 14vw, 110px);
+      width: auto;
+      filter: drop-shadow(0 0 44px rgba(255,45,85,0.45));
+      animation: float 7s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-9px); }
+    }
+    .hero-brand h1 {
+      font-size: clamp(3.8rem, 11vw, 8.5rem);
+      font-weight: 800;
+      letter-spacing: -0.045em;
+      line-height: 0.9;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-tagline {
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--muted);
+      max-width: 500px;
+      margin: 0 auto 36px;
+    }
+
+    .hero-badge img {
+      height: clamp(42px, 8vw, 56px);
+      width: auto;
+      border-radius: 10px;
+      transition: transform 0.22s ease;
+    }
+    .hero-badge:hover img { transform: scale(1.05); }
+
+    /* Phone screenshots row */
+    .hero-screens {
+      margin-top: 68px;
+      position: relative;
+    }
+    .screens-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 14px;
+    }
+    .s-card {
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.09),
+        0 32px 80px rgba(0,0,0,0.85);
+    }
+    .s-card:nth-child(1) {
+      width: clamp(110px, 18vw, 168px);
+      transform: rotate(-5deg) translateY(24px);
+    }
+    .s-card:nth-child(2) {
+      width: clamp(140px, 24vw, 220px);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.14),
+        0 44px 100px rgba(0,0,0,0.9),
+        0 0 80px rgba(255,45,85,0.28);
+    }
+    .s-card:nth-child(3) {
+      width: clamp(110px, 18vw, 168px);
+      transform: rotate(5deg) translateY(24px);
+    }
+    .s-card img { width: 100%; height: auto; display: block; }
+
+    .screens-glow {
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 55%;
+      height: 60px;
+      background: radial-gradient(ellipse, rgba(191,90,242,0.35) 0%, transparent 70%);
+      filter: blur(18px);
+      pointer-events: none;
+    }
+
+    /* ────────────────────────────────
+       DIVIDER
+    ──────────────────────────────── */
+    .divider {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+    }
+
+    /* ────────────────────────────────
+       SECTION SHARED
+    ──────────────────────────────── */
+    .section { padding: 96px 24px; }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 10px;
+    }
+    .s-title {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+    .s-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 540px;
+    }
+
+    /* ────────────────────────────────
+       FEATURES
+    ──────────────────────────────── */
+    .features-section { text-align: center; }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin: 56px auto 0;
+      max-width: 1100px;
+    }
+
+    .f-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 28px 22px 0;
+      overflow: hidden;
+      text-align: left;
+      position: relative;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .f-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: var(--grad);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .f-card:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.2); }
+    .f-card:hover::after { opacity: 1; }
+
+    .f-icon {
+      width: 42px; height: 42px;
+      border-radius: 11px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      margin-bottom: 14px;
+    }
+    .f-icon.alarm  { background: rgba(255,45,85,0.14); }
+    .f-icon.sleep  { background: rgba(191,90,242,0.14); }
+    .f-icon.focus  { background: rgba(10,132,255,0.14); }
+
+    .f-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 7px;
+    }
+    .f-card > p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 22px;
+    }
+
+    .f-preview {
+      width: 100%;
+      border-radius: 14px 14px 0 0;
+      height: 270px;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-evenly;
+      padding: 0 10px;
+      overflow: hidden;
+    }
+    .f-preview.bg-snooze { background-image: url("assets/img/sfondoPlaceholder.jpeg"); }
+    .f-preview.bg-sleep  { background-image: url("assets/img/sfondoPlaceholderDark.jpeg"); }
+    .f-preview.bg-focus  { background-image: url("assets/img/sfondoPlaceholder2.jpeg"); }
+
+    .f-preview img {
+      max-height: 100%;
+      max-width: 46%;
+      object-fit: contain;
+      flex-shrink: 1;
+      filter: drop-shadow(0 -8px 24px rgba(0,0,0,0.45));
+    }
+
+    /* ────────────────────────────────
+       APPLE MUSIC
+    ──────────────────────────────── */
+    .music-section {
+      background: linear-gradient(180deg, transparent 0%, rgba(255,45,85,0.045) 50%, transparent 100%);
+    }
+    .music-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      max-width: 1000px;
       margin: 0 auto;
     }
+    .music-text .s-sub { max-width: 400px; }
 
-    header h1 {
-      font-size: 3rem;
+    .music-embed-frame {
+      border-radius: 18px;
+      width: 100%;
+      height: 450px;
+      border: 0;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    }
+
+    /* ────────────────────────────────
+       VIDEO
+    ──────────────────────────────── */
+    .video-section { text-align: center; }
+    .video-wrap {
+      max-width: 580px;
+      margin: 48px auto 0;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow:
+        0 0 0 1px var(--border),
+        0 40px 90px rgba(0,0,0,0.75);
+    }
+    .video-wrap video { width: 100%; height: auto; display: block; }
+
+    /* ────────────────────────────────
+       FAQ
+    ──────────────────────────────── */
+    .faq-section { text-align: center; }
+    .faq-list {
+      max-width: 700px;
+      margin: 48px auto 0;
+      text-align: left;
+    }
+    .faq-item { border-bottom: 1px solid var(--border); }
+
+    .faq-btn {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 1rem;
       font-weight: 600;
-      margin-bottom: 16px;
-    }
-
-    header p {
-      font-size: 1.5rem;
-      color: var(--secondary);
-      max-width: 720px;
-      margin: 0 auto 32px;
-      font-style: italic;
-    }
-
-    .cta {
+      text-align: left;
+      padding: 20px 0;
+      cursor: pointer;
       display: flex;
-      gap: 16px;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      transition: color 0.2s ease;
+    }
+    .faq-btn:hover { color: var(--purple); }
+
+    .faq-chevron {
+      flex-shrink: 0;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.25s ease, border-color 0.25s ease;
+    }
+    .faq-chevron svg {
+      width: 9px; height: 9px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform 0.3s ease;
+    }
+    .faq-item.open .faq-chevron {
+      background: rgba(191,90,242,0.18);
+      border-color: rgba(191,90,242,0.4);
+    }
+    .faq-item.open .faq-chevron svg { transform: rotate(180deg); }
+
+    .faq-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.38s ease;
+    }
+    .faq-item.open .faq-body { max-height: 500px; }
+    .faq-body p {
+      padding: 0 0 20px;
+      color: var(--muted);
+      font-size: 0.935rem;
+      line-height: 1.72;
+    }
+
+    /* ────────────────────────────────
+       BOTTOM CTA
+    ──────────────────────────────── */
+    .cta-section {
+      text-align: center;
+      padding: 80px 24px 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 640px; height: 320px;
+      background: radial-gradient(ellipse, rgba(191,90,242,0.14) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-section h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .cta-section > p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 36px;
+      position: relative;
+    }
+    .cta-section img {
+      height: 54px;
+      width: auto;
+      border-radius: 10px;
+      transition: transform 0.22s ease;
+      position: relative;
+    }
+    .cta-section a:hover img { transform: scale(1.05); }
+
+    /* ────────────────────────────────
+       FOOTER
+    ──────────────────────────────── */
+    footer {
+      padding: 28px 24px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .footer-links {
+      display: flex;
+      align-items: center;
       justify-content: center;
       flex-wrap: wrap;
-    }
-
-    .cta a {
-      text-decoration: none;
-      padding: 12px 22px;
-      border-radius: 999px;
-      font-size: 1rem;
-      font-weight: 500;
-      border: 1px solid var(--border);
-      color: var(--text);
-      transition: all 0.2s ease;
-    }
-
-    .cta a.primary {
-      background-color: var(--accent);
-      color: white;
-      border-color: var(--accent);
-    }
-
-    .cta a:hover {
-      transform: translateY(-1px);
-    }
-
-    section {
-      padding: 80px 24px;
-      border-top: 1px solid var(--border);
-    }
-
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-    }
-
-    h2 {
-      font-size: 2rem;
-      font-weight: 600;
-      margin-bottom: 24px;
-      text-align: center;
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 32px;
-      margin-top: 48px;
-    }
-
-    .feature {
-      text-align: center;
-    }
-
-.feature .placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-
-  width: 100%;
-  height: 320px;
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  border-radius: 16px;
-  padding: 16px;
-  overflow: hidden;
-}
-
-.placeholder.bg-snooze {
-  background-image: url("assets/img/sfondoPlaceholder.jpeg");
-}
-
-.placeholder.bg-sleep {
-  background-image: url("assets/img/sfondoPlaceholderDark.jpeg");
-}
-
-.placeholder.bg-focus {
-  background-image: url("assets/img/sfondoPlaceholder2.jpeg");
-}
-
-
-
-    /* custom style*/
- .feature .placeholder img {
-  max-height: 100%;
-  max-width: 45%;
-  object-fit: contain;
-  flex-shrink: 1;
-  z-index: 1;
-}
-
-
-
-    .feature h3 {
-      margin-bottom: 8px;
-      font-size: 1.1rem;
-    }
-
-    .feature p {
-      color: var(--secondary);
-      font-size: 0.95rem;
-    }
-
-    .faq {
-      max-width: 720px;
-      margin: 0 auto;
-    }
-
-    .faq-item {
-      border-bottom: 1px solid var(--border);
-      padding: 20px 0;
-    }
-
-    .faq-item h4 {
-      margin: 0 0 8px;
-      font-size: 1rem;
-    }
-
-    .legal-links {
-      text-align: center;
-      margin-top: 0px;
+      gap: 6px;
       margin-bottom: 10px;
-      font-size: 0.9rem;
     }
-
-    .legal-links a {
-      color: #007AFF;          /* Apple system blue */
-       font-size: 0.9rem;
+    .footer-links a {
+      color: var(--muted);
       text-decoration: none;
-      margin: 0 8px;
+      font-size: 0.83rem;
+      transition: color 0.2s ease;
+    }
+    .footer-links a:hover { color: var(--text); }
+    .footer-links .sep { color: var(--border); font-size: 0.83rem; }
+    .footer-copy { color: rgba(255,255,255,0.22); font-size: 0.78rem; }
+
+    /* ────────────────────────────────
+       GRADIENT TEXT UTILITY
+    ──────────────────────────────── */
+    .grad-text {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
-.legal-links a:hover {
-  text-decoration: underline;
-}
-
-    footer {
-      padding: 40px 24px;
-      text-align: center;
-      color: var(--secondary);
-      font-size: 0.85rem;
-      border-top: 1px solid var(--border);
+    /* ────────────────────────────────
+       RESPONSIVE
+    ──────────────────────────────── */
+    @media (max-width: 900px) {
+      .features-grid { grid-template-columns: 1fr; max-width: 460px; }
+      .music-inner   { grid-template-columns: 1fr; gap: 36px; }
+      .music-text    { text-align: center; }
+      .music-text .s-sub { margin: 0 auto; }
     }
-    /* Modifiche di stile lf51 */
-.brand {
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  font-size: clamp(2.6rem, 6vw, 5.2rem); /* 👈 SCALA TUTTO */
-  gap: 7px;
-}
-
-.brand img {
-  height: 1em;
-  width: auto;
-  object-fit: contain;
-  transform: translateY(2px);
-}
-
-.brand h1 {
-  font-size: 1em;
-  font-weight: 600;
-  line-height: 1;
-}
-
-.budgeApple img {
- height: clamp(3.0rem, 6vw, 5.2rem);
-  width: auto;
-  object-fit: contain;
-  transform: translateY(2px);
-  
-}
-
-.budgeAppleBottom {
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  
-}
-
-.budgeAppleBottom img {
-  height: clamp(3.0rem, 6vw, 5.2rem);
-  width: auto;
-  object-fit: contain;
-  transform: translateY(2px);
-  margin-top: 50px;
-}
-    
-.music-embed {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 48px;
-
-  max-width: 960px;
-  margin: 0 auto;
-}
-
-.music-text {
-  max-width: 520px;
-  text-align: center;
-}
-.video-wrapper {
-  width: 100%;
-  max-width: 460px;
-}
-
-
-.video-wrapper video {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  display: block;
-}
-
-
-@media (max-width: 768px) {
-  .music-embed {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-}
-    
+    @media (max-width: 520px) {
+      .s-card:nth-child(1),
+      .s-card:nth-child(3) { display: none; }
+      .s-card:nth-child(2) { width: clamp(200px, 60vw, 260px); }
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- HERO / PRODUCT HEADER -->
-  <header>
-    <!-- <h1>TuneUp!</h1> -->
-  <div class="brand">
-    <img src="assets/img/logo_PNG_8.3.png" alt="TuneUp! logo" />
-    <h1>TuneUp!</h1>
-  </div>
-    <p>Turn snooze into music</p>
-
-    <!-- Modifiche lf51 -->
-<div class="budgeApple">
-  <a href="https://apps.apple.com/app/apple-store/id6754902021?pt=123477141&ct=website&mt=8">
-    <img src="assets/img/appStore_badge.png" alt="Download on the App Store">
-  </a>
-
-</div>
- <!-- Chiusa Modifiche lf51 -->
-    
-  </header>
+  <!-- ── NAV ── -->
+  <nav>
+    <a href="#" class="nav-brand">
+      <img src="assets/img/logo_PNG_8.3.png" alt="TuneUp! logo" />
+      <span>TuneUp!</span>
+    </a>
+    <a href="https://apps.apple.com/app/apple-store/id6754902021?pt=123477141&ct=website&mt=8" class="nav-dl">
+      <img src="assets/img/appStore_badge.png" alt="Download on the App Store" />
+    </a>
+  </nav>
 
 
-  <!-- PRODUCT OVERVIEW -->
-  <section>
-    <div class="container">
-      <h2>Built around your daily rhythm</h2>
-      <p style="text-align:center; color: var(--secondary); max-width:720px; margin:0 auto;">
-        Music that helps you shape your routines — from waking up to winding down and staying focused.
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-content">
+
+      <div class="hero-pill">♪ Integrates Apple Music</div>
+
+      <div class="hero-brand">
+        <img src="assets/img/logo_PNG_8.3.png" alt="TuneUp! logo" />
+        <h1>TuneUp!</h1>
+      </div>
+
+      <p class="hero-tagline">Turn snooze into music</p>
+      <p class="hero-sub">
+        Wake up, fall asleep, and stay focused — powered by the music you already love.
       </p>
 
-      <div class="features">
-        <div class="feature">
-          <h3>Snooze, reimagined with music</h3>
-          <p>Turn your morning snooze into sound.
-Instead of silence, your music gently takes over and helps you wake up your way.</p>
-          <div class="placeholder bg-snooze">
-             <img src="assets/img/newWakeUpScreen.png" alt="TuneUp! New Alarm View" />
-            <img src="assets/img/musicAlarm.png" alt="TuneUp! Music Alarm View" />
-          </div>
-          <!--<h3>Snooze with Music</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
-        </div>
-        <div class="feature">
-          <h3>Fall asleep with Music</h3>
-          <p>Let music guide you into sleep.
-Choose what you love and drift off naturally — with or without a timer.</p>
-          <div class="placeholder bg-sleep">
-            <img src="assets/img/musicLibraryScreen.png" alt="TuneUp! Music Library" />
-            <img src="assets/img/fallAsleepScreen.png" alt="TuneUp! Fall Asleep View" />
+      <a href="https://apps.apple.com/app/apple-store/id6754902021?pt=123477141&ct=website&mt=8" class="hero-badge">
+        <img src="assets/img/appStore_badge.png" alt="Download on the App Store" />
+      </a>
 
+      <div class="hero-screens">
+        <div class="screens-row">
+          <div class="s-card">
+            <img src="assets/img/musicLibraryScreen.png" alt="Music Library" />
           </div>
-          <!--<h3>Fall asleep with Music</h3>
-          <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>-->
-        </div>
-        <div class="feature">
-          <h3>Stay Focused or Relax</h3>
-          <p>Find your rhythm and stay present.
-Use music to focus or slow down, set a timer, and let the rest fade away.</p>
-          <div class="placeholder bg-focus">  
-            <img src="assets/img/focusScreen.png" alt="TuneUp! Focus View" />
+          <div class="s-card">
+            <img src="assets/img/newWakeUpScreen.png" alt="Wake Up Screen" />
           </div>
-          
-          <!--<h3>Stay Focus or Relax </h3>
-          <p>Ut enim ad minim veniam, quis nostrud exercitation.</p>-->
+          <div class="s-card">
+            <img src="assets/img/focusScreen.png" alt="Focus Screen" />
+          </div>
         </div>
-       
+        <div class="screens-glow"></div>
       </div>
+
     </div>
   </section>
 
-   <!-- Apple Music Section -->
- <section>
-    <div class="music-embed">
-      <div class="music-text">
-    <h2>Discover our selections on Apple Music</h2>
-    <p>Use our playlists, or get inspired to create your perfect wake-up soundtrack.
-A curated starting point for mornings that feel just right.</p>
-  </div>
-          <!-- Apple Music frame con link a playList. Modificare con nostra Playlist -->
-<iframe height="450" width="100%" title="Lettore multimediale" src="https://embed.music.apple.com/us/playlist/waking-up/pl.71f9f4dd13b946ff91900c6befa93e03?itscg=30200&amp;itsct=music_box_player&amp;ls=1&amp;app=music&amp;mttnsubad=pl.71f9f4dd13b946ff91900c6befa93e03&amp;theme=light" id="embedPlayer" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="autoplay *; encrypted-media *; clipboard-write" style="border: 0px; border-radius: 12px; width: 100%; height: 450px; max-width: 660px;"></iframe>
+
+  <!-- ── FEATURES ── -->
+  <div class="divider"></div>
+  <section class="section features-section">
+    <span class="tag">Features</span>
+    <h2 class="s-title">Built around your daily rhythm</h2>
+    <p class="s-sub" style="margin: 0 auto;">
+      Music that helps you shape your routines — from waking up to winding down.
+    </p>
+
+    <div class="features-grid">
+
+      <div class="f-card">
+        <div class="f-icon alarm">⏰</div>
+        <h3>Snooze, reimagined with music</h3>
+        <p>Turn your morning snooze into sound. Instead of silence, your music gently takes over and helps you wake up your way.</p>
+        <div class="f-preview bg-snooze">
+          <img src="assets/img/newWakeUpScreen.png" alt="Wake Up View" />
+          <img src="assets/img/musicAlarm.png" alt="Music Alarm View" />
         </div>
-  </section>
-<!-- Video last Update-->
+      </div>
 
-<section>
-  <div class="music-embed">
-    <div class="music-text">
-      <h2>Discover the latest version of TuneUp!</h2>
+      <div class="f-card">
+        <div class="f-icon sleep">🌙</div>
+        <h3>Fall asleep with music</h3>
+        <p>Let music guide you into sleep. Choose what you love and drift off naturally — with or without a timer.</p>
+        <div class="f-preview bg-sleep">
+          <img src="assets/img/musicLibraryScreen.png" alt="Music Library" />
+          <img src="assets/img/fallAsleepScreen.png" alt="Fall Asleep View" />
+        </div>
+      </div>
+
+      <div class="f-card">
+        <div class="f-icon focus">🎯</div>
+        <h3>Stay focused or relax</h3>
+        <p>Find your rhythm and stay present. Use music to focus or slow down, set a timer, and let the rest fade away.</p>
+        <div class="f-preview bg-focus">
+          <img src="assets/img/focusScreen.png" alt="Focus View" />
+        </div>
+      </div>
+
     </div>
+  </section>
 
-    <div class="video-wrapper">
-      <video
-        controls
-        preload="metadata"
-        poster="assets/video/tuneup-poster.jpg"
-      >
+
+  <!-- ── APPLE MUSIC ── -->
+  <div class="divider"></div>
+  <section class="section music-section">
+    <div class="music-inner">
+      <div class="music-text">
+        <span class="tag">Apple Music</span>
+        <h2 class="s-title">Discover our selections</h2>
+        <p class="s-sub">
+          Use our playlists, or get inspired to create your perfect wake-up soundtrack — a curated starting point for mornings that feel just right.
+        </p>
+      </div>
+      <iframe
+        class="music-embed-frame"
+        title="Apple Music Player"
+        src="https://embed.music.apple.com/us/playlist/waking-up/pl.71f9f4dd13b946ff91900c6befa93e03?itscg=30200&itsct=music_box_player&ls=1&app=music&mttnsubad=pl.71f9f4dd13b946ff91900c6befa93e03&theme=dark"
+        sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
+        allow="autoplay *; encrypted-media *; clipboard-write">
+      </iframe>
+    </div>
+  </section>
+
+
+  <!-- ── VIDEO ── -->
+  <div class="divider"></div>
+  <section class="section video-section">
+    <span class="tag">What's New</span>
+    <h2 class="s-title">Discover the latest version</h2>
+    <div class="video-wrap">
+      <video controls preload="metadata">
         <source src="assets/video/appLastUpdate.MP4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </div>
-  </div>
-</section>
-
-
-  <!-- FAQ -->
-  <section>
-    <div class="container">
-      <h2>Frequently Asked Questions</h2>
-      <div class="faq">
-        <div class="faq-item">
-          <h4>What is TuneUp! ?</h4>
-          <p>TuneUp! is a music-based app that helps you use music more intentionally throughout your day.
-Instead of relying on a classic alarm or endless snoozing, TuneUp! lets you wake up with your favorite songs, helping you start the day in a more natural and pleasant way.
-You can also choose to receive optional reminders for when it’s time to go to bed, fall asleep with a preset sleep timer, or enter focus and relax modes using timed music sessions designed to match your moment.
-TuneUp! works seamlessly with Apple Music, so you can use the songs and playlists you already love, without managing yet another music library.</p>
-        </div>
-        <div class="faq-item">
-          <h4>Does TuneUp! require Apple Music Subscription?</h4>
-          <p>TuneUp! requires access to the Apple Music library, but an active subscription is not strictly required.
-If you have an active Apple Music subscription, you can use your personal playlists, albums, and saved music directly inside TuneUp!.
-If you don’t have a subscription, you can still use TuneUp! with Apple Music’s free radio stations.
-TuneUp! adapts to your Apple Music access level, letting you use music in a more intentional way whether you’re subscribed or not.</p>
-        </div>
-        <div class="faq-item">
-          <h4>Does TuneUp! require authentication?</h4>
-          <p>No. TuneUp! does not require you to create an account or sign in. The app only asks for permission to access your Apple Music account in order to play music and use Apple Music features. No additional authentication or user profile is required to use TuneUp!</p>
-        </div>
-<div class="faq-item">
-          <h4>Does TuneUp! collect or share personal data?</h4>
-          <p>No. TuneUp! does not collect, store, or share personal data.
-The app does not create user profiles, track listening behavior, or distribute data to third parties. Any preferences you set — such as timers, modes, or notification settings — are stored locally on your device.
-Access to Apple Music is handled entirely through Apple’s official frameworks, following Apple’s privacy standards.</p>
-</div>
-
-        <div class="faq-item">
-          <h4>Does TuneUp! work offline?</h4>
-          <p>Yes — as long as the music is available in your Apple Music library.
-TuneUp! does not stream content on its own. It only accesses the music already present in your Apple Music library, including songs, albums, and playlists you’ve added or downloaded for offline use. If that content is available offline, TuneUp! will work without an internet connection.
-Availability depends on how your Apple Music library is set up and whether the content has been downloaded to your device.</p>
-        </div>
-
- <div class="faq-item">
-          <h4>Can I use my own playlists with TuneUp?</h4>
-          <p>Yes. TuneUp! is designed to work with your own Apple Music library.
-If you have an active Apple Music subscription, you can use your personal playlists, albums, and saved tracks for alarms, sleep timers, focus sessions, and relaxation modes. TuneUp! simply lets you reuse the music you already love, in a more intentional way.</p>
- </div>
-
-         <div class="faq-item">
-          <h4>Does TuneUp support multiple languages?</h4>
-          <p>Yes. TuneUp! supports multiple languages, including:
-English, French, Italian, German, Spanish, Portuguese, Simplified Chinese, Japanese, Indonesian, and Korean.
-More languages will be added over time.</p>
-        </div>
-        
-      </div>
-    </div>
-
-    <div class="budgeAppleBottom">
-  <a href="https://apps.apple.com/app/apple-store/id6754902021?pt=123477141&ct=website&mt=8">
-    <img src="assets/img/appStore_badge.png" alt="Download on the App Store">
-  </a>
-
-</div>
-  
   </section>
 
-  <footer>
-    
-    <div class="legal-links">
-        <a href="legal/privacy/privacyIndex.html">Privacy Policy</a> |
-        <a href="legal/terms/termsIndex.html">Terms of Service</a> |
-        <a href="https://lf51.github.io/portfolio/">Developer</a> |
-        <a href="legal/contact/contactForm.html">Contacts</a>
+
+  <!-- ── FAQ ── -->
+  <div class="divider"></div>
+  <section class="section faq-section">
+    <span class="tag">FAQ</span>
+    <h2 class="s-title">Frequently Asked Questions</h2>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-btn">
+          What is TuneUp!?
+          <span class="faq-chevron"><svg viewBox="0 0 12 8"><polyline points="1,1 6,7 11,1"/></svg></span>
+        </button>
+        <div class="faq-body">
+          <p>TuneUp! is a music-based app that helps you use music more intentionally throughout your day. Instead of relying on a classic alarm or endless snoozing, TuneUp! lets you wake up with your favorite songs, helping you start the day in a more natural and pleasant way. You can also choose to receive optional reminders for when it's time to go to bed, fall asleep with a preset sleep timer, or enter focus and relax modes using timed music sessions. TuneUp! works seamlessly with Apple Music, so you can use the songs and playlists you already love.</p>
+        </div>
       </div>
 
-     <p>© TuneUp! – All rights reserved</p>
+      <div class="faq-item">
+        <button class="faq-btn">
+          Does TuneUp! require an Apple Music subscription?
+          <span class="faq-chevron"><svg viewBox="0 0 12 8"><polyline points="1,1 6,7 11,1"/></svg></span>
+        </button>
+        <div class="faq-body">
+          <p>TuneUp! requires access to the Apple Music library, but an active subscription is not strictly required. If you have an active Apple Music subscription, you can use your personal playlists, albums, and saved music directly inside TuneUp!. If you don't have a subscription, you can still use TuneUp! with Apple Music's free radio stations.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn">
+          Does TuneUp! require authentication?
+          <span class="faq-chevron"><svg viewBox="0 0 12 8"><polyline points="1,1 6,7 11,1"/></svg></span>
+        </button>
+        <div class="faq-body">
+          <p>No. TuneUp! does not require you to create an account or sign in. The app only asks for permission to access your Apple Music account in order to play music and use Apple Music features. No additional authentication or user profile is required.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn">
+          Does TuneUp! collect or share personal data?
+          <span class="faq-chevron"><svg viewBox="0 0 12 8"><polyline points="1,1 6,7 11,1"/></svg></span>
+        </button>
+        <div class="faq-body">
+          <p>No. TuneUp! does not collect, store, or share personal data. The app does not create user profiles, track listening behavior, or distribute data to third parties. Any preferences you set are stored locally on your device. Access to Apple Music is handled entirely through Apple's official frameworks, following Apple's privacy standards.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn">
+          Does TuneUp! work offline?
+          <span class="faq-chevron"><svg viewBox="0 0 12 8"><polyline points="1,1 6,7 11,1"/></svg></span>
+        </button>
+        <div class="faq-body">
+          <p>Yes — as long as the music is available in your Apple Music library. TuneUp! does not stream content on its own. It only accesses the music already present in your Apple Music library, including songs, albums, and playlists you've added or downloaded for offline use. If that content is available offline, TuneUp! will work without an internet connection.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn">
+          Can I use my own playlists with TuneUp!?
+          <span class="faq-chevron"><svg viewBox="0 0 12 8"><polyline points="1,1 6,7 11,1"/></svg></span>
+        </button>
+        <div class="faq-body">
+          <p>Yes. TuneUp! is designed to work with your own Apple Music library. If you have an active Apple Music subscription, you can use your personal playlists, albums, and saved tracks for alarms, sleep timers, focus sessions, and relaxation modes.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn">
+          Does TuneUp! support multiple languages?
+          <span class="faq-chevron"><svg viewBox="0 0 12 8"><polyline points="1,1 6,7 11,1"/></svg></span>
+        </button>
+        <div class="faq-body">
+          <p>Yes. TuneUp! supports multiple languages, including: English, French, Italian, German, Spanish, Portuguese, Simplified Chinese, Japanese, Indonesian, and Korean. More languages will be added over time.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ── BOTTOM CTA ── -->
+  <section class="cta-section">
+    <h2>Ready to wake up <span class="grad-text">differently?</span></h2>
+    <p>Download TuneUp! and start your day with the music you love.</p>
+    <a href="https://apps.apple.com/app/apple-store/id6754902021?pt=123477141&ct=website&mt=8">
+      <img src="assets/img/appStore_badge.png" alt="Download on the App Store" />
+    </a>
+  </section>
+
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-links">
+      <a href="legal/privacy/privacyIndex.html">Privacy Policy</a>
+      <span class="sep">·</span>
+      <a href="legal/terms/termsIndex.html">Terms of Service</a>
+      <span class="sep">·</span>
+      <a href="https://lf51.github.io/portfolio/">Developer</a>
+      <span class="sep">·</span>
+      <a href="legal/contact/contactForm.html">Contact</a>
+    </div>
+    <p class="footer-copy">© TuneUp! – All rights reserved</p>
   </footer>
+
+
+  <script>
+    // FAQ accordion
+    document.querySelectorAll('.faq-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  </script>
 
 </body>
 </html>
